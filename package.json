@@ -1,0 +1,30 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run script:build",
+    "client:build": "esbuild client/src/index.tsx --bundle --minify --outfile=build/app.js",
+    "server:build": "esbuild server/src/server.tsx --bundle --minify --outfile=build/server.js --platform=node",
+    "script:build": "tsc --noEmit & node scripts/build.js",
+    "script:build-dev": "tsc --noEmit & node scripts/build.js --dev",
+    "start": "node build/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "esbuild": "^0.14.2"
+  }
+}
