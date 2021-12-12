@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run script:build",
-    "client:build": "esbuild client/src/index.tsx --bundle --minify --outfile=build/app.js",
-    "server:build": "esbuild server/src/server.tsx --bundle --minify --outfile=build/server.js --platform=node",
+    "build": "npm run script:build -- --clean",
+    "build-dev": "npm run script:build -- --dev",
     "script:build": "tsc --noEmit & node scripts/build.js",
-    "script:build-dev": "npm run script:build --  --dev",
+    "client:build": "esbuild client/src/index.tsx --bundle --minify --sourcemap --outfile=build/app.js",
+    "server:build": "esbuild server/src/server.tsx --bundle --minify --sourcemap --outfile=build/server.js --platform=node",
     "start": "node build/server.js"
   },
   "keywords": [],
