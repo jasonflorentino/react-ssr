@@ -9,7 +9,7 @@
     "client:build": "esbuild client/src/index.tsx --bundle --minify --outfile=build/app.js",
     "server:build": "esbuild server/src/server.tsx --bundle --minify --outfile=build/server.js --platform=node",
     "script:build": "tsc --noEmit & node scripts/build.js",
-    "script:build-dev": "tsc --noEmit & node scripts/build.js --dev",
+    "script:build-dev": "npm run script:build --  --dev",
     "start": "node build/server.js"
   },
   "keywords": [],

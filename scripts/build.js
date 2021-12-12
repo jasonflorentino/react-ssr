@@ -16,14 +16,14 @@ const commonOptions = {
   // target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
 }
 
-// Build client
+// Async build client
 require('esbuild').build({
   ...commonOptions,
   entryPoints: ['client/src/index.tsx'],
   outfile: OUT_DIR + '/app.js',
 }).catch(() => process.exit(1))
 
-// Build server
+// Async build server
 require('esbuild').build({
   ...commonOptions,
   entryPoints: ['server/src/server.tsx'],
