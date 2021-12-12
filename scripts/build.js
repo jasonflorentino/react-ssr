@@ -1,5 +1,6 @@
 require('dotenv').config();
 const fs = require('fs');
+const esbuild = require('esbuild');
 
 const OUT_DIR = process.env.OUT_DIR;
 const isDev = process.argv.includes('--dev');
@@ -17,14 +18,14 @@ const commonOptions = {
 }
 
 // Async build client
-require('esbuild').build({
+esbuild.build({
   ...commonOptions,
   entryPoints: ['client/src/index.tsx'],
   outfile: OUT_DIR + '/app.js',
 }).catch(() => process.exit(1))
 
 // Async build server
-require('esbuild').build({
+esbuild.build({
   ...commonOptions,
   entryPoints: ['server/src/server.tsx'],
   outfile: OUT_DIR + '/server.js',
